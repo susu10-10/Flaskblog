@@ -13,7 +13,9 @@ def home():
 @app.route('/register', methods=['GET','POST'])
 def register():
     form = RegisterForm()
-    if form.validate_on_submit()
+    if form.validate_on_submit():
+        flash(f'Account Created for {form.username.data}!','success')
+        return redirect(url_for('home'))
     return render_template('register.html', form=form)
 
 @app.route('/login', methods=['GET','POST'])
