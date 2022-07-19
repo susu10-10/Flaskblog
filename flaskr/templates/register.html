@@ -2,13 +2,24 @@
 
 {% block title %} Flaskr - Register {% endblock %}
 
+{}
+
 {% block content %}
+{% for message in get_flashed_messages() %}
+    <div class="alert alert-warning alert-dismissible fade show" 
+    role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" 
+        data-bs-dismiss="alert" aria-label="Close"></button>
+    </div> 
+{% endfor %}
 <div class="container reglogin">
     <div class="form-group">
         <div class="col-12">
             <h3 class="text-center m-5">New Users Register Below</h3>
         </div>
         <form method="post" class="form-control">
+                {{ form.hidden_tag() }}
             <div class="p-2">
                 {{ form.fullname.label(placeholder='fullname', class='form-control-label fw-bold')}}
                 {{ form.fullname(class='form-control form-control-lg mt-3')}}
@@ -29,19 +40,15 @@
             <div class="p-2">
                 {{ form.confirm_password.label(placeholder='Confirm Password', class='form-control-label fw-bold')}}
                 {{ form.confirm_password(class='form-control form-control-lg mt-3')}}
-                <label for="pwd" class="fw-bold">Confirm Password:</label>
-                <input 
-                  type="password" 
-                  name="pswd" 
-                  id="pwd"
-                  class="form-control mt-3"
-                  placeholder="Enter password"
-                  required>
-            </div>
             <div class="my-3">
                 {{ form.submit(class='btn btn-dark') }}
             </div>
         </form>
     </div>
+</div>
+<div class="border-top pt-3">
+    <small class="text-muted">
+        Already have an account? <a href="{{ url_for('login') }}" class="ml-2">Sign in</a>
+    </small>
 </div>
 {% endblock %}
