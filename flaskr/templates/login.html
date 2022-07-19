@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+
+{% block title %} Flaskr - Login {% endblock %}
+
+{% block content %}
+<div class="container loginpage">
+    <div class="form-group">
+        <form action="" class="form-control" method="post">
+            {{ form.hiddent_tag() }}
+            <div class="p-2 form-group">
+                {{ form.email.label(placeholder='email', class='form-control-label fw-bold')}}
+                {{ form.email(class='form-control form-control-lg mt-3')}}
+            </div>
+            <div class="p-2 form-group">
+                {{ form.password.label(placeholder='password', class='form-control-label fw-bold')}}
+                {{ form.password(class='form-control form-control-lg mt-3')}}
+            </div>
+            <div class="form-check mb-3 ms-2">
+                <label class="form-check-label">
+                    <input
+                      type="checkbox" 
+                      name="remember"
+                      class="form-check-input">Remember me
+                </label>
+            </div>
+            <div class="mb-3">
+                {{ form.submit(class='btn btn-dark') }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

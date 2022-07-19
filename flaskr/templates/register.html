@@ -1,0 +1,47 @@
+{% extends 'base.html' %} 
+
+{% block title %} Flaskr - Register {% endblock %}
+
+{% block content %}
+<div class="container reglogin">
+    <div class="form-group">
+        <div class="col-12">
+            <h3 class="text-center m-5">New Users Register Below</h3>
+        </div>
+        <form method="post" class="form-control">
+            <div class="p-2">
+                {{ form.fullname.label(placeholder='fullname', class='form-control-label fw-bold')}}
+                {{ form.fullname(class='form-control form-control-lg mt-3')}}
+            </div>
+            <div class="p-2">
+                {{ form.username.label(placeholder='username', class='form-control-label fw-bold')}}
+                {{ form.username(class='form-control form-control-lg mt-3')}}
+            </div>
+            <div class="p-2">
+                {{ form.email.label(placeholder='email', class='form-control-label fw-bold')}}
+                {{ form.email(class='form-control form-control-lg mt-3')}}
+            </div>
+            <div class="p-2">
+                {{ form.password.label(placeholder='password', class='form-control-label fw-bold')}}
+                {{ form.password(class='form-control form-control-lg mt-3')}}
+            </div>
+
+            <div class="p-2">
+                {{ form.confirm_password.label(placeholder='Confirm Password', class='form-control-label fw-bold')}}
+                {{ form.confirm_password(class='form-control form-control-lg mt-3')}}
+                <label for="pwd" class="fw-bold">Confirm Password:</label>
+                <input 
+                  type="password" 
+                  name="pswd" 
+                  id="pwd"
+                  class="form-control mt-3"
+                  placeholder="Enter password"
+                  required>
+            </div>
+            <div class="my-3">
+                {{ form.submit(class='btn btn-dark') }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
