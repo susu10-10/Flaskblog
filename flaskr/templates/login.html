@@ -3,9 +3,21 @@
 {% block title %} Flaskr - Login {% endblock %}
 
 {% block content %}
-<div class="container loginpage">
+{% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" 
+            role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" 
+                data-bs-dismiss="alert" aria-label="Close"></button>
+            </div> 
+        {% endfor %}
+        {% endif %}
+    {% endwith %}
+<div class="container loginpage mb-1">
     <div class="form-group">
-        <form action="" class="form-control" method="post">
+        <form class="form-control" method="post">
             {{ form.hidden_tag() }}
             <div class="p-2 form-group">
                 {{ form.email.label(placeholder='email', class='form-control-label fw-bold')}}
@@ -16,17 +28,21 @@
                 {{ form.password(class='form-control form-control-lg mt-3')}}
             </div>
             <div class="form-check mb-3 ms-2">
-                <label class="form-check-label">
-                    <input
-                      type="checkbox" 
-                      name="remember"
-                      class="form-check-input">Remember me
-                </label>
+                {{ form.remember(class='form-check-input') }}
+                {{ form.remember.label(class='form-check-label') }}
             </div>
             <div class="mb-3">
                 {{ form.submit(class='btn btn-dark') }}
             </div>
+            <small class="text-muted ms-2">
+                <a href="#">Forgot Password?</a>
+            </small>
         </form>
     </div>
+</div>
+<div class="border-top pt-3">
+    <small class="text-muted">
+        Don't have an account? <a href="{{ url_for('register') }}" class="ml-2">Sign Up Now</a>
+    </small>
 </div>
 {% endblock %}

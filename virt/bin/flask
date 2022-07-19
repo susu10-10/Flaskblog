@@ -1,4 +1,4 @@
-#!/home/su/Documents/dev_lessons/FlaskBlog/virt/bin/python3
+#!/home/su/Documents/mycodes/Flaskblog/virt/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
