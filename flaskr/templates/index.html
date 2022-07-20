@@ -16,18 +16,7 @@
         {% endfor %}
         {% endif %}
     {% endwith %}
-    <!--header section-->
-    <div class="container">
-        <div class="d-flex justify-content-between mb-0">
-            <h2 class="align-self-center">Post</h2>
-            <a class=" btn btn-info align-self-center" 
-            role="button"
-            href="create.html">new</a>
-        </div>
-        <hr>
-
-    </div>
-{% endblock %}
+{% endblock header %}
 
 {% block content %}
 
@@ -35,11 +24,11 @@
         {% for post in posts %}
         {% endfor %} 
     {% else %}
-        <div class="container border mb-3 p-2">
+        <div class="container border my-3 p-2 bg-blog">
             <div class="px-3">
                 <div class="">
                     <a href="#">By Su</a>
-                    <small>on May 20, 2020</small>
+                    <small>on May 21, 2020</small>
                     <hr class="mt-1">
                 </div>
                 <div>
@@ -49,7 +38,7 @@
             </div>
         </div>
 
-        <div class="container border p-2">
+        <div class="container border p-2 bg-blog">
             <div class="px-3">
                 <div class="">
                     <a href="#">By Su</a>

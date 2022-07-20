@@ -1,9 +1,17 @@
-from flaskr import db
+from flaskr import db, login_manager
 from datetime import datetime
+from flask_login import UserMixin
 
+
+#we create a func called loaduser that takes in  a userid as arg
+#and it will return the user for that id
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 # Models
-class User(db.Model):
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     fullname = db.Column(db.String(40), nullable=False)
     username = db.Column(db.String(15), unique=True, nullable=False)
@@ -24,3 +32,10 @@ class Post(db.Model):
 
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}')"
+
+
+
+
+'''we created a function with a decorator called user loader
+this is for reloading the user from the userid stored in the session
+this extension needs to know how to find one of your users by the id'''

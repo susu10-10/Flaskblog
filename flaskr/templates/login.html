@@ -1,6 +1,6 @@
 {% extends 'base.html' %} 
 
-{% block title %} Flaskr - Login {% endblock %}
+{% block title %} Login {% endblock %}
 
 {% block content %}
 {% with messages = get_flashed_messages(with_categories=true) %}
@@ -15,7 +15,7 @@
         {% endfor %}
         {% endif %}
     {% endwith %}
-<div class="container loginpage mb-1">
+<div class="container reglogin">
     <div class="form-group">
         <form class="form-control" method="post">
             {{ form.hidden_tag() }}
@@ -40,7 +40,7 @@
         </form>
     </div>
 </div>
-<div class="border-top pt-3">
+<div class="reglogin mt-2">
     <small class="text-muted">
         Don't have an account? <a href="{{ url_for('register') }}" class="ml-2">Sign Up Now</a>
     </small>

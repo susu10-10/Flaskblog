@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block header %} 
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" 
+            role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" 
+                data-bs-dismiss="alert" aria-label="Close"></button>
+            </div> 
+        {% endfor %}
+        {% endif %}
+    {% endwith %}
+{% endblock header %}
+
+
+{% block content %}
+    <div class="container border my-3 bg-blog">
+        <div class="media p-2 d-flex justify-content-start">
+            <img src="{{ image_file }}" alt="user image" class="rounded-circle">
+            <div class="media-body">
+                <h2 class="account-heading ps-3">{{ current_user.username }}</h2>
+                <p class="ps-3">{{ current_user.email }}</p>
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            <div>
+                <h3 class="text-center m-4">Update Profile</h3>
+            </div>
+            <form method="post" class="bg-blog" enctype="multipart/form-data">
+                    {{ form.hidden_tag() }}
+                <div class="p-2">
+                    {{ form.fullname.label(placeholder='fullname', class='form-control-label fw-bold')}}
+                    {{ form.fullname(class='form-control form-control-lg mt-3')}}
+                </div>
+                <div class="p-2">
+                    {{ form.username.label(placeholder='username', class='form-control-label fw-bold')}}
+    
+                    {% if form.username.errors %} 
+                        {{ form.username(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %} 
+                                <span> {{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.username(class='form-control form-control-lg mt-3')}}
+                    {% endif %}
+                </div>
+                <div class="p-2">
+                    {{ form.email.label(placeholder='email', 
+                    class='form-control-label fw-bold')}}
+                    
+                    {% if form.email.errors %} 
+                        {{ form.email(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %} 
+                                <span> {{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class='form-control form-control-lg mt-3')}}
+                    {% endif %}
+                </div>
+                <div class="p-2 col-4">
+                    {{ form.picture.label()}}
+                    {{ form.picture(class='form-control-file') }}
+                    {% if form.picture.errors %}
+                    {% for error in form.picture.errors %}
+                        <span class="text-danger">{{ error }}</span><br>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="my-3">
+                    {{ form.submit(class='btn btn-dark') }}
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}

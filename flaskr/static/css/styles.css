@@ -5,15 +5,15 @@
 
 .reglogin {
     margin: 3% auto 0;
-    width: 50%;
+    width: 40%;
 }
 
-.loginpage {
-    margin: 3% auto 0;
-    width: 40%;
-    margin-top: 100px;
-}
 
 .sub {
     width: 100%;
+}
+
+.bg-blog {
+    background-color: #eee;
+    border-radius: 6px;
 }
