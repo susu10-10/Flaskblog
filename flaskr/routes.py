@@ -37,6 +37,7 @@ def register():
 @app.route('/login/', methods=['GET','POST'])
 def login():
     if current_user.is_authenticated:
+        flash('Login successfully', 'success')
         return redirect(url_for('home'))
     form = LoginForm()
     if form.validate_on_submit():
@@ -47,6 +48,11 @@ def login():
             login_user(user, remember=form.remember.data)
             # getting the next parameter from the user if it exists
             next_page = request.args.get('next')
+            if next_page:
+                return redirect(next_page)
+            else:
+                flash('Login successfully', 'success')
+                return redirect(url_for('home'))
             return redirect(next_page) if next_page else redirect(url_for('home'))
         else:
             flash('Login Unsuccessful Please check username and password','danger')
@@ -56,6 +62,7 @@ def login():
 @app.route('/logout/')
 def logout():
     logout_user()
+    flash('logout successfully', 'success')
     return redirect(url_for('login'))
 
 
