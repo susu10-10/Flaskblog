@@ -3,7 +3,7 @@ cffi
 click
 dnspython
 email-validator
-Flask==2.3.2
+Flask
 Flask-Bcrypt
 Flask-Login
 Flask-WTF
@@ -18,5 +18,5 @@ SQLAlchemy
 Werkzeug==2.3.3
 WTForms
 zipp
-Flask-SQLAlchemy==2.5.1
+Flask-SQLAlchemy
 Pillow
