@@ -33,12 +33,4 @@ pipeline {
 
     // Optionally, you can add post-build actions or notifications.
     // For example, sending an email on failure or success.
-    post {
-        always {
-            // Clean up artifacts or perform other cleanup tasks if needed.
-            steps {
-                //
-            }
-        }
-    }
 }
