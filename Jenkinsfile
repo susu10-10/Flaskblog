@@ -20,6 +20,13 @@ pipeline {
             }
         }
 
+        stage('Docker Clean up') {
+            steps {
+                // Clean up the Docker image in the registry
+                sh "docker rmi -f ${IMAGE_URL_WITH_TAG}"
+            }
+        }
+
         stage("Post") {
             steps {
                 echo "Successfully, pushed image to the docker registry"
@@ -28,6 +35,11 @@ pipeline {
 
         // Add more stages for other tasks in your Jenkins pipeline
         // For example, stages for testing and deployment.
+    }
+
+    triggers {
+        // SCM Trigger - Trigger the pipeline on changes to the repository
+        scm('*/1 * * * *')  // Run every 1 minutes
     }
 
     // Optionally, you can add post-build actions or notifications.
