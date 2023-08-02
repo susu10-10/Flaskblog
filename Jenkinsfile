@@ -8,10 +8,8 @@ pipeline {
     stages {
         stage('Build Docker Image') {
             steps {
-                script {
                     // Build the Docker image
                     sh "docker build . -t ${IMAGE_URL_WITH_TAG}"
-                }
             }
         }
 
