@@ -38,8 +38,7 @@ pipeline {
     }
 
     triggers {
-        // SCM Trigger - Trigger the pipeline on changes to the repository
-        cron('*/1 * * * *')  // Run every 1 minutes
+        githubPush() // Trigger on GitHub push events
     }
 
     // Optionally, you can add post-build actions or notifications.
