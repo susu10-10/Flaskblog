@@ -14,6 +14,7 @@ pipeline {
                 }
             }
         }
+    }
 
         stage('Push Docker Image') {
             steps {
@@ -29,7 +30,6 @@ pipeline {
                     }
                 }
             }
-        }
 
         stage("Post") {
             steps {
