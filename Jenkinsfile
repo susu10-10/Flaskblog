@@ -1,5 +1,5 @@
 pipeline {
-    enviroment {
+    environment {
         registry = '10.5.10.38:5000/flaskr-webapp'
         IMAGE_URL_WITH_TAG = '${registry}:${env.BUILD_NUMBER}'
     }
@@ -18,15 +18,6 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 sh ""
-                script {
-                    // Tag the Docker image with a version or a unique identifier
-                    // def dockerTag = "${env.BUILD_NUMBER}"
-                    // docker.image('your-image-name').tag("${dockerTag}")
-
-                    // Push the Docker image to a container registry (e.g., Docker Hub)
-                    // docker.withRegistry('https://registry.example.com', 'credentials-id') {
-                        // docker.image("${dockerTag}").push()
-                    }
                 }
             }
 
