@@ -19,6 +19,5 @@ SQLAlchemy==1.4.39
 Werkzeug==2.1.2
 WTForms==3.0.1
 zipp==3.8.1
-Flask==2.1.0
 Flask-SQLAlchemy==2.5.1
 Pillow==8.3.1
