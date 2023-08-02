@@ -8,25 +8,15 @@ pipeline {
     stages {
         stage('Build Docker Image') {
             steps {
-<<<<<<< HEAD
                 // Build the Docker image
                 sh "docker build . -t ${IMAGE_URL_WITH_TAG}"
-=======
-                    // Build the Docker image
-                    sh "docker build . -t ${IMAGE_URL_WITH_TAG}"
->>>>>>> d2058ca7780169598542d5b07f81b3ddfbb9e9b4
             }
         }
 
         stage('Push Docker Image') {
             steps {
-<<<<<<< HEAD
                 // Push the Docker image to the registry
                 sh "docker push ${IMAGE_URL_WITH_TAG}"
-=======
-                sh ""
-                }
->>>>>>> d2058ca7780169598542d5b07f81b3ddfbb9e9b4
             }
         }
 
