@@ -14,7 +14,6 @@ pipeline {
                 }
             }
         }
-    }
 
         stage('Push Docker Image') {
             steps {
@@ -48,5 +47,4 @@ pipeline {
             // Clean up artifacts or perform other cleanup tasks if needed.
         }
     }
-}
 }
