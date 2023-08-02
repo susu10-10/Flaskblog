@@ -45,6 +45,9 @@ pipeline {
     post {
         always {
             // Clean up artifacts or perform other cleanup tasks if needed.
+            steps {
+                //
+            }
         }
     }
 }
